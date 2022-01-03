@@ -50,18 +50,17 @@ const Login = (props) => {
     value : '',
     isvalid : null
   })
-  // useEffect(() => {
-  //   const identifier = setTimeout(() => {
-  //     setFormIsValid(
-  //       enteredEmail.includes("@") && enteredPassword.trim().length > 6
-  //     );
-  //     console.log("check");
-  //   }, 500);
-  //   return () => {
-  //     clearTimeout(identifier);
-  //     console.log("wait...");
-  //   };
-  // }, [enteredEmail, enteredPassword]);
+  useEffect(() => {
+    const identifier = setTimeout(() => {
+      setFormIsValid(
+        emailState.value.includes("@") && passwordState.value.trim().length > 6
+      );
+    }, 500);
+    return () => {
+      clearTimeout(identifier);
+      console.log("wait...");
+    };
+  }, [emailState, passwordState]);
 
   const emailChangeHandler = (event) => {
     emailDispatch({ type: "INPUT_EMAIL", value: event.target.value });
