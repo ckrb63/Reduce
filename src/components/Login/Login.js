@@ -90,6 +90,7 @@ const Login = (props) => {
       props.onLogin(emailState.value, passwordState.value);
     }else if(!emailState.isvalid){
       emailRef.current.activate();
+      //login에서 input안에있는 함수를 실행.
     }else{
       passwordRef.current.activate();
     }
